@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.botoes {
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  text-align: center;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.botoes.coluna {
+  flex-direction: column;
+}
+
+.botao {
+  text-decoration: none;
+  color: inherit;
+  padding: 20px 40px;
+  border-radius: 20px;
+  border: 1px solid #00008b;
+  cursor: pointer;
+}
+
+.botao.destaque {
+  background-color: #00008b;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.botao.destaque:hover {
+  background-color: #01015c;
+}
+
+.botao.secundario {
+  background-color: #fff;
+  color: #00008b;
+  transition: 0.5s;
+}
+
+.botao.secundario:hover {
+  background-color: #d5d5d5;
+}
