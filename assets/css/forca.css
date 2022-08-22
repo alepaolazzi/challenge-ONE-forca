@@ -1,0 +1,57 @@
+.container-xs {
+  width: 600px;
+  margin: 50px auto;
+}
+
+.container-items {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: space-between;
+}
+
+#container-entrada h2 {
+  font-size: 22px;
+  text-align: center;
+  font-family: "Mulish", sans-serif;
+  padding-bottom: 30px;
+}
+
+.entrada {
+  font-size: 32px;
+  color: #062347;
+  display: block;
+  font-family: "Mulish", sans-serif;
+  max-width: 500px;
+  padding: 20px 0;
+}
+
+.botoes.centro {
+  justify-content: center;
+}
+
+.botao.add {
+  width: 50%;
+}
+
+#quadro {
+  background-color: #efe8e8;
+  height: 425px;
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+/* Usado pelo JavaScript */
+
+.tela {
+  background-color: aliceblue;
+}
+
+.aparece {
+  display: block;
+}
+
+.esconde {
+  display: none;
+}

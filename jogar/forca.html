@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/img/jogo-favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <title>Jogo da Forca</title>
+</head>
+
+<body>
+  <a href="../index.html"><img class="logo" src="../assets/img/logo.svg" alt="Logo da Alura"></a>
+  <main class="container-xs">
+    <div class="container-items">
+      <div id="container-entrada">
+        <h2>Selecione uma opção de tema abaixo</h2>
+        <select id="entrada" class="entrada">
+          <option value="frutas">Frutas</option>
+          <option value="flores">Flores</option>
+          <option value="animais" selected>Animais</option>
+          <optgroup label="Geografia">
+            <option value="cidades">Cidades</option>
+            <option value="estados">Estados</option>
+            <option value="paises">Países</option>
+          </optgroup>
+        </select>
+      </div>
+      <canvas id="quadro"></canvas>
+      <div>
+        <div class="botoes centro">
+          <button id="comecar" class="botao destaque add">Salvar e Começar</button>
+          <a id="fim" href="../index.html" class="botao secundario add">Cancelar</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+
+</html>
