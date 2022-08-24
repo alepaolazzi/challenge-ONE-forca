@@ -14,7 +14,7 @@
   font-size: 22px;
   text-align: center;
   font-family: "Mulish", sans-serif;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .entrada {
@@ -22,7 +22,6 @@
   color: #062347;
   display: block;
   font-family: "Mulish", sans-serif;
-  max-width: 500px;
   padding: 20px 0;
 }
 
@@ -55,3 +54,27 @@
 .esconde {
   display: none;
 }
+
+/* @media (max-width: 1440px) {
+  .container-xs {
+    width: 900px;
+  }
+  .container-items {
+    height: 675px;
+  }
+  .botao.add {
+    font-size: 20px;
+  }
+  #container-entrada h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+  .entrada {
+    font-size: 52px;
+    padding: 30px 40px;
+  }
+  #quadro {
+    height: 550px;
+    width: 900px;
+  }
+} */

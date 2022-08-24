@@ -38,10 +38,11 @@ html {
 select,
 option,
 optgroup {
-  background: #d1d1d1;
+  background: #80cde6;
   border: none;
   margin: 0 auto;
   border-radius: 12px;
+  box-shadow: 5px 5px 5px #000000bd;
 }
 
 option,
@@ -54,9 +55,16 @@ optgroup {
 select:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
+  box-shadow: 5px 5px 5px #000000bd;
 }
 
 button {
   font-size: inherit;
   font-family: inherit;
 }
+
+/* @media (max-width: 1440px) {
+  .titulo {
+    font-size: 5rem;
+  }
+} */

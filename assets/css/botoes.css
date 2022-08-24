@@ -45,3 +45,16 @@
 .botao.secundario:hover {
   background-color: #d5d5d5;
 }
+
+/* @media (max-width: 1440px) {
+  .container {
+    height: 400px;
+  }
+  .botao {
+    padding: 35px 50px;
+    font-size: 28px;
+  }
+  .botoes {
+    gap: 20px;
+  }
+} */
