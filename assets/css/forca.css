@@ -55,6 +55,42 @@
   display: none;
 }
 
+@media (max-width: 500px) {
+  .container-xs {
+    width: 400px;
+    margin: 75px auto;
+  }
+  .container-items {
+    justify-content: space-around;
+  }
+  .entrada {
+    padding: 10px 10px;
+  }
+  #quadro {
+    height: 275px;
+    width: 375px;
+  }
+  .botao.add {
+    width: 75%;
+  }
+}
+
+@media (max-width: 400px) {
+  .container-xs {
+    width: 300px;
+  }
+  #container-entrada h2 {
+    font-size: 18px;
+  }
+  #quadro {
+    height: 250px;
+    width: 300px;
+  }
+  .botao.add {
+    width: 100%;
+  }
+}
+
 /* @media (max-width: 1440px) {
   .container-xs {
     width: 900px;

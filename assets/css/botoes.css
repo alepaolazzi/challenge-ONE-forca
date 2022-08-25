@@ -46,6 +46,13 @@
   background-color: #d5d5d5;
 }
 
+@media (max-width: 500px) {
+  .botoes {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* @media (max-width: 1440px) {
   .container {
     height: 400px;
