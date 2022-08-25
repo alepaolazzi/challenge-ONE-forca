@@ -35,6 +35,39 @@ html {
   margin: 40px 0;
 }
 
+.teclado {
+  display: none;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 5px;
+  padding: 5px 10px;
+}
+
+.tecla {
+  font-family: "Mulish", sans-serif;
+  max-width: 50px;
+  background-color: #48b5cb;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 1.5px 1.5px 1px 0 rgb(0 0 0 / 48%);
+  transition: 0.5s;
+}
+
+/* Usado pelo JS */
+
+.mostra {
+  display: grid;
+}
+
+.b {
+  background-color: rgb(50, 165, 42);
+}
+
+.r {
+  background-color: red;
+}
+
+/* Fim do usado pelo JS */
+
 select,
 option,
 optgroup {
@@ -52,9 +85,13 @@ optgroup {
   color: #062347;
 }
 
-select:focus {
+select:focus,
+input:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
+}
+
+select:focus {
   box-shadow: 5px 5px 5px #000000bd;
 }
 
@@ -63,9 +100,21 @@ button {
   font-family: inherit;
 }
 
+@media (max-width: 900px) {
+  #teclado {
+    display: grid;
+  }
+}
+
 @media (max-width: 500px) {
   .header-container {
     margin-top: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .teclado {
+    padding: 5px 0;
   }
 }
 

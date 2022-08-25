@@ -3,10 +3,9 @@ const container = document.querySelector("#container-entrada");
 const botaoJogar = document.querySelector("#comecar");
 const desistir = document.querySelector("#fim");
 const quadro = document.querySelector("#quadro");
+const teclas = document.querySelectorAll(".teclado button");
+const teclado = document.querySelector(".teclado");
 const desenha = quadro.getContext("2d");
-
-// remove o quadro da tela
-quadro.classList.add("esconde");
 
 //Objeto com os arrays de palavras
 let palavras = {
@@ -261,6 +260,7 @@ let erro = 0;
 let letrasCertas = [];
 let letrasRecebidas = "";
 let letraErrada;
+let tem;
 
 // funcao principal que chama as complementares
 function jogar() {
@@ -277,8 +277,8 @@ function jogar() {
 function verificaBotao() {
   if (botaoJogar.textContent == "Salvar e Começar") {
     container.classList.add("esconde");
-    quadro.classList.remove("esconde");
     quadro.classList.add("aparece");
+    teclado.setAttribute("id", "teclado");
     botaoJogar.innerText = "Novo Jogo";
     desistir.innerText = "Desistir";
   } else if (botaoJogar.textContent == "Novo Jogo") {
@@ -358,9 +358,7 @@ function verificaLetra(e) {
       alert("Letra já adicionada!");
     } else {
       letraPressionada = e.key.toUpperCase();
-      console.log("letra pressionada: " + letraPressionada);
       letrasRecebidas += e.key;
-      console.log("recebida: " + letrasRecebidas);
       direcionaLetra();
       vencedor();
     }
@@ -393,7 +391,6 @@ function direcionaLetra() {
       if (letraPressionada === palavra[i]) {
         desenhaLetra(palavra[i], i);
         letrasCertas.push(palavra[i]);
-        console.log("certas: " + letrasCertas);
       }
     }
   } else {
@@ -401,7 +398,6 @@ function direcionaLetra() {
     letraErrada = letraPressionada;
     desenhaLetraErrada(letraErrada);
     desenhaBoneco(erro);
-    console.log("errada: " + letraErrada);
   }
 }
 
@@ -434,6 +430,10 @@ function perdeu() {
     }
   }
   document.removeEventListener("keydown", verificaLetra, false);
+  teclado.removeEventListener("touchstart", verificaLetraMobile, false);
+  teclas.forEach((tecla) => {
+    tecla.removeEventListener("touchend", editaTecla, false);
+  });
 }
 
 //escreve na tela que a partida foi vencida
@@ -443,7 +443,55 @@ function ganhou() {
   desenha.fillText("Parabéns", 240, 55);
   desenha.fillText("você ganhou!", 230, 65);
   document.removeEventListener("keydown", verificaLetra, false);
+  teclado.removeEventListener("touchstart", verificaLetraMobile, false);
+  teclas.forEach((tecla) => {
+    tecla.removeEventListener("touchend", editaTecla, false);
+  });
 }
 
+function verificaLetraMobile(e) {
+  if (letrasRecebidas.includes(e.target.innerText)) {
+    alert("Letra já adicionada!");
+  } else {
+    letrasRecebidas += e.target.innerText;
+    direcionaMobile(e.target.innerText);
+    vencedor();
+  }
+}
+
+function direcionaMobile(letra) {
+  if (palavra.includes(letra)) {
+    for (let i = 0; i < palavra.length; i++) {
+      if (letra === palavra[i]) {
+        desenhaLetra(palavra[i], i);
+        tem = true;
+        letrasCertas.push(palavra[i]);
+        vencedor();
+      }
+    }
+  } else {
+    erro++;
+    letraErrada = letra;
+    tem = false;
+    desenhaLetraErrada(letraErrada);
+    desenhaBoneco(erro);
+  }
+}
+
+function editaTecla(e) {
+  if (tem) {
+    e.target.innerText = "✓";
+    e.target.classList.add("b");
+  } else {
+    e.target.innerText = "✘";
+    e.target.classList.add("r");
+  }
+}
+
+teclas.forEach((tecla) => {
+  tecla.addEventListener("touchend", editaTecla);
+});
+
+teclado.addEventListener("touchstart", verificaLetraMobile);
 botaoJogar.addEventListener("click", jogar);
 document.addEventListener("keydown", verificaLetra);
