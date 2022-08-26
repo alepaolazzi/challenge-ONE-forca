@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 650px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #container-entrada h2 {
@@ -100,7 +100,7 @@
     width: 375px;
   }
   .botao.add {
-    width: 75%;
+    width: 85%;
   }
 }
 

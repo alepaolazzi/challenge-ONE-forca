@@ -37,7 +37,7 @@ html {
 
 .teclado {
   display: none;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   gap: 5px;
   margin: 10px 0;
 }
@@ -116,6 +116,9 @@ button {
 @media (max-width: 500px) {
   .header-container {
     margin-top: 40px;
+  }
+  .teclado {
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 
