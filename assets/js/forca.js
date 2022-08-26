@@ -347,6 +347,7 @@ function desenhaBoneco(erros) {
       desenha.lineTo(165, 80);
       desenha.stroke();
       perdeu();
+      fimDeJogo();
       break;
   }
 }
@@ -405,6 +406,7 @@ function direcionaLetra() {
 function vencedor() {
   if (palavra.length === letrasCertas.length) {
     ganhou();
+    fimDeJogo();
   }
 }
 
@@ -429,11 +431,6 @@ function perdeu() {
       desenha.fillText(palavra[i], 53 + 30 * (i - 1), 124);
     }
   }
-  document.removeEventListener("keydown", verificaLetra, false);
-  teclado.removeEventListener("touchstart", verificaLetraMobile, false);
-  teclas.forEach((tecla) => {
-    tecla.removeEventListener("touchend", editaTecla, false);
-  });
 }
 
 //escreve na tela que a partida foi vencida
@@ -442,15 +439,28 @@ function ganhou() {
   desenha.fillStyle = "#00aa00";
   desenha.fillText("Parabéns", 240, 55);
   desenha.fillText("você ganhou!", 230, 65);
+}
+
+// remove os eventos no final do jogo
+function fimDeJogo() {
   document.removeEventListener("keydown", verificaLetra, false);
   teclado.removeEventListener("touchstart", verificaLetraMobile, false);
-  teclas.forEach((tecla) => {
-    tecla.removeEventListener("touchend", editaTecla, false);
-  });
+  setTimeout(
+    () =>
+      teclas.forEach((tecla) => {
+        tecla.removeEventListener("touchend", editaTecla, false);
+      }),
+    100
+  );
 }
 
 function verificaLetraMobile(e) {
-  if (letrasRecebidas.includes(e.target.innerText)) {
+  letraPressionada = e.target.innerText;
+  if (
+    letrasRecebidas.includes(e.target.innerText) ||
+    letraPressionada == "✓" ||
+    letraPressionada == "✘"
+  ) {
     alert("Letra já adicionada!");
   } else {
     letrasRecebidas += e.target.innerText;
