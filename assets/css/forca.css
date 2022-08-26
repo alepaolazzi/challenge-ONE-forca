@@ -6,7 +6,7 @@
 .container-items {
   display: flex;
   flex-direction: column;
-  height: 675px;
+  height: 650px;
   justify-content: space-between;
 }
 
@@ -37,7 +37,7 @@
 .quadro {
   display: none;
   background-color: #efe8e8;
-  height: 550px;
+  height: 525px;
   width: 900px;
   margin: 0 auto;
   border-radius: 12px;
