@@ -4,6 +4,7 @@ const botaoJogar = document.querySelector("#comecar");
 const desistir = document.querySelector("#fim");
 const quadro = document.querySelector("#quadro");
 const teclas = document.querySelectorAll(".teclado button");
+const botaoMobile = document.querySelector("#botoes");
 const teclado = document.querySelector(".teclado");
 const desenha = quadro.getContext("2d");
 
@@ -279,6 +280,7 @@ function verificaBotao() {
     container.classList.add("esconde");
     quadro.classList.add("aparece");
     teclado.setAttribute("id", "teclado");
+    botaoMobile.classList.add("mobile");
     botaoJogar.innerText = "Novo Jogo";
     desistir.innerText = "Desistir";
   } else if (botaoJogar.textContent == "Novo Jogo") {
@@ -462,6 +464,8 @@ function verificaLetraMobile(e) {
     letraPressionada == "✘"
   ) {
     alert("Letra já adicionada!");
+  } else if (letraPressionada.length > 1) {
+    console.log("nada");
   } else {
     letrasRecebidas += e.target.innerText;
     direcionaMobile(e.target.innerText);

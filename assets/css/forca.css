@@ -25,10 +25,6 @@
   padding: 25px 10px;
 }
 
-.botoes.centro {
-  justify-content: center;
-}
-
 .botao.add {
   width: 50%;
   font-size: 20px;
@@ -90,7 +86,7 @@
   }
   .container-items {
     justify-content: space-around;
-    height: 550px;
+    height: 585px;
   }
   .entrada {
     padding: 10px 10px;
@@ -108,6 +104,9 @@
   .container-xs {
     width: 300px;
   }
+  .container-items {
+    height: 500px;
+  }
   #container-entrada h2 {
     font-size: 18px;
   }
@@ -115,7 +114,9 @@
     height: 250px;
     width: 300px;
   }
-  .botao.add {
-    width: 100%;
+  .mobile .botao.add {
+    width: 50%;
+    font-size: 12px;
+    padding: 15px;
   }
 }

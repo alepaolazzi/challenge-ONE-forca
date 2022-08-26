@@ -39,7 +39,7 @@ html {
   display: none;
   grid-template-columns: repeat(9, 1fr);
   gap: 5px;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .tecla {
@@ -60,11 +60,11 @@ html {
 }
 
 .b {
-  background-color: rgb(50, 165, 42);
+  background-color: #32a52a;
 }
 
 .r {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 /* Fim do usado pelo JS */
@@ -124,6 +124,6 @@ button {
 
 @media (max-width: 400px) {
   .teclado {
-    padding: 5px 0;
+    margin: 0;
   }
 }
