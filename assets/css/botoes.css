@@ -40,6 +40,7 @@
   background-color: #fff;
   color: #00008b;
   transition: 0.5s;
+  padding: 20px 30px;
 }
 
 .botao.secundario:hover {
