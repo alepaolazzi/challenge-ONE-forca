@@ -103,6 +103,7 @@
 @media (max-width: 400px) {
   .container-xs {
     width: 300px;
+    margin: 60px auto;
   }
   .container-items {
     height: 500px;
