@@ -6,8 +6,8 @@
 .container-items {
   display: flex;
   flex-direction: column;
-  height: 650px;
-  justify-content: space-around;
+  height: 625px;
+  justify-content: space-between;
 }
 
 #container-entrada h2 {
@@ -18,11 +18,11 @@
 }
 
 .entrada {
-  font-size: 52px;
+  font-size: 42px;
   color: #062347;
   display: block;
   font-family: "Mulish", sans-serif;
-  padding: 30px 40px;
+  padding: 25px 10px;
 }
 
 .botoes.centro {
@@ -64,7 +64,7 @@
     width: 600px;
   }
   .container-items {
-    height: 575px;
+    height: 550px;
   }
   .botao.add {
     font-size: 18px;
