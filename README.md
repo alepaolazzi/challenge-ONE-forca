@@ -1,1 +1,1 @@
-<h1>Jogo da Forca</h1>
+<h1 align="center">Jogo da Forca</h1>

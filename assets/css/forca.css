@@ -1,28 +1,28 @@
 .container-xs {
-  width: 600px;
+  width: 900px;
   margin: 50px auto;
 }
 
 .container-items {
   display: flex;
   flex-direction: column;
-  height: 575px;
+  height: 675px;
   justify-content: space-between;
 }
 
 #container-entrada h2 {
-  font-size: 22px;
   text-align: center;
   font-family: "Mulish", sans-serif;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  margin-bottom: 50px;
 }
 
 .entrada {
-  font-size: 32px;
+  font-size: 52px;
   color: #062347;
   display: block;
   font-family: "Mulish", sans-serif;
-  padding: 20px 0;
+  padding: 30px 40px;
 }
 
 .botoes.centro {
@@ -31,13 +31,14 @@
 
 .botao.add {
   width: 50%;
+  font-size: 20px;
 }
 
 .quadro {
   display: none;
   background-color: #efe8e8;
-  height: 425px;
-  width: 600px;
+  height: 550px;
+  width: 900px;
   margin: 0 auto;
   border-radius: 12px;
 }
@@ -57,6 +58,30 @@
 }
 
 /* Fim das classes usadas pelo JS*/
+
+@media (max-width: 1050px) {
+  .container-xs {
+    width: 600px;
+  }
+  .container-items {
+    height: 575px;
+  }
+  .botao.add {
+    font-size: 18px;
+  }
+  #container-entrada h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+  .entrada {
+    font-size: 32px;
+    padding: 20px 0;
+  }
+  .quadro {
+    height: 425px;
+    width: 600px;
+  }
+}
 
 @media (max-width: 500px) {
   .container-xs {
@@ -94,27 +119,3 @@
     width: 100%;
   }
 }
-
-/* @media (max-width: 1440px) {
-  .container-xs {
-    width: 900px;
-  }
-  .container-items {
-    height: 675px;
-  }
-  .botao.add {
-    font-size: 20px;
-  }
-  #container-entrada h2 {
-    font-size: 2rem;
-    margin-bottom: 50px;
-  }
-  .entrada {
-    font-size: 52px;
-    padding: 30px 40px;
-  }
-  #quadro {
-    height: 550px;
-    width: 900px;
-  }
-} */
