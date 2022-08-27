@@ -5,6 +5,7 @@ const desistir = document.querySelector("#fim");
 const quadro = document.querySelector("#quadro");
 const teclas = document.querySelectorAll(".teclado button");
 const botaoMobile = document.querySelector("#botoes");
+const titulo = document.querySelector(".tema");
 const teclado = document.querySelector(".teclado");
 const desenha = quadro.getContext("2d");
 
@@ -268,6 +269,8 @@ function jogar() {
   let entradaValor = entrada.value;
   let palavraSecreta = sorteia(palavras[entradaValor].length);
   palavra = palavras[entradaValor][palavraSecreta];
+  titulo.classList.add("apareceTitulo");
+  titulo.innerText = entradaValor.toUpperCase();
   console.log(palavra);
   verificaBotao();
   desenhaForca();

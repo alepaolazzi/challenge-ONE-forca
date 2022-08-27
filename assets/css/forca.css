@@ -39,6 +39,10 @@
   border-radius: 12px;
 }
 
+.tema {
+  display: none;
+}
+
 /* Usado pelo JavaScript */
 
 .tela {
@@ -53,6 +57,15 @@
   display: block;
 }
 
+.apareceTitulo {
+  display: block;
+  position: absolute;
+  margin: 10px;
+  font-family: "Hi Melody", cursive;
+  text-align: center;
+  color: #000;
+  font-size: 42px;
+}
 /* Fim das classes usadas pelo JS*/
 
 @media (max-width: 1050px) {
@@ -77,6 +90,9 @@
     height: 425px;
     width: 600px;
   }
+  .apareceTitulo {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -97,6 +113,10 @@
   }
   .botao.add {
     width: 85%;
+  }
+  .apareceTitulo {
+    margin-left: 20px;
+    font-size: 22px;
   }
 }
 
@@ -119,5 +139,9 @@
     width: 50%;
     font-size: 12px;
     padding: 15px;
+  }
+  .apareceTitulo {
+    margin-left: 10px;
+    margin-top: 25px;
   }
 }
