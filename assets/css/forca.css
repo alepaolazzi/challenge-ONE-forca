@@ -39,6 +39,13 @@
   border-radius: 12px;
 }
 
+.forca {
+  display: block;
+  background-color: transparent;
+  height: 350px;
+  width: 700px;
+}
+
 .tema {
   display: none;
 }
@@ -93,6 +100,10 @@
   .apareceTitulo {
     font-size: 32px;
   }
+  .forca {
+    width: 500px;
+    height: 250px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -117,6 +128,10 @@
   .apareceTitulo {
     margin-left: 20px;
     font-size: 22px;
+  }
+  .forca {
+    width: 300px;
+    height: 150px;
   }
 }
 

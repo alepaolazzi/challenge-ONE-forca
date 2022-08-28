@@ -137,7 +137,7 @@ let palavras = {
     "BAGDA",
     "JERUSALEM",
     "TOQUIO",
-    "VIETIANE",
+    "VIENTIANE",
     "MOSCOU",
     "BERLIM",
     "VIENA",
