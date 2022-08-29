@@ -277,12 +277,12 @@ let palavraAnterior = "";
 
 // funcao principal que chama as complementares
 function jogar() {
-  if (clicado) {
+  if (clicado || entradaValor !== "jogador") {
     entradaValor = entrada.value;
   }
   verificaBotao();
   palavra = palavras[entradaValor][palavraSecreta];
-  console.log("Atual " + palavra);
+  console.log(palavra);
   desenhaForca();
   desenhaLinha(palavra);
   if (palavras.jogador.length >= 1) {
@@ -384,6 +384,7 @@ function clear() {
   letrasRecebidas = "";
   letrasCertas = [];
   erro = 0;
+  clicado = true;
 }
 
 // desenha a forca no canvas
@@ -513,11 +514,9 @@ function vencedor() {
 //sorteia uma palavra aleatoria na lista
 function sorteia(arrayTamanho) {
   let resultado = Math.round(Math.random() * (arrayTamanho - 1));
-  console.log(palavraSecreta);
   if (palavras.jogador.length > 1) {
     while (palavraSecreta == resultado) {
       resultado = Math.round(Math.random() * (arrayTamanho - 1));
-      console.log(resultado);
     }
   }
   return resultado;
