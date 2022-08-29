@@ -50,6 +50,45 @@
   display: none;
 }
 
+.adicionarPalavra {
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.addPalavra {
+  display: none;
+  background-color: transparent;
+  padding: 10px;
+  font-weight: 700;
+  border: solid 1px #000;
+  border-radius: 0 12px 12px 0;
+}
+
+.novaPalavra {
+  display: none;
+  font-size: 32px;
+  background-color: transparent;
+  font-family: "Mulish", sans-serif;
+  padding: 15px 10px;
+  /* border: none; */
+}
+
+#novaPalavra {
+  display: block;
+  margin: 0 auto;
+}
+
+#botaoPush {
+  display: block;
+  margin: 0 auto;
+}
+
+input::placeholder {
+  color: #062347;
+}
+
 /* Usado pelo JavaScript */
 
 .tela {
@@ -106,6 +145,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .botao.add {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 500px) {
   .container-xs {
     width: 400px;
@@ -114,6 +159,21 @@
   .container-items {
     justify-content: space-around;
     height: 585px;
+  }
+  .adicionarPalavra {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .novaPalavra {
+    max-width: 250px;
+    padding: 10px 5px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .addPalavra {
+    border-radius: 8px;
+    font-size: 14px;
   }
   .entrada {
     padding: 10px 10px;
@@ -132,6 +192,9 @@
   .forca {
     width: 300px;
     height: 150px;
+  }
+  #container-entrada p {
+    text-align: center;
   }
 }
 

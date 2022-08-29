@@ -55,16 +55,26 @@ html {
 
 /* Usado pelo JS */
 
+#aviso {
+  margin: -20px auto 30px auto;
+  color: #9a0000;
+  width: fit-content;
+}
+
 .mostra {
   display: grid;
 }
 
-.b {
+.g {
   background-color: #32a52a;
 }
 
 .r {
   background-color: #ff0000;
+}
+
+.b {
+  background-color: #48b5cb;
 }
 
 /* Fim do usado pelo JS */
@@ -77,6 +87,10 @@ optgroup {
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 5px 5px 5px #000000bd;
+}
+
+input {
+  border: 1px solid #000;
 }
 
 option,

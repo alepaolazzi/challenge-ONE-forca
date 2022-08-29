@@ -21,48 +21,55 @@
     <div class="container-items">
       <div id="container-entrada">
         <h2>Selecione uma opção de tema abaixo</h2>
+        <p id="aviso"></p>
         <select id="entrada" class="entrada">
           <option value="frutas">Frutas</option>
-          <option value="flores" selected>Flores</option>
+          <option value="flores">Flores</option>
           <option value="animais">Animais</option>
           <optgroup label="Geografia">
             <option value="capitais">Capitais</option>
             <option value="paises">Países</option>
+            <option id="jogador" value="jogador" disabled>Jogador</option>
           </optgroup>
         </select>
+        <div class="adicionarPalavra">
+          <input type="text" class="novaPalavra" placeholder="Digite uma palavra">
+          <button class="addPalavra botao">Adicionar</button>
+        </div>
       </div>
       <canvas id="quadro" class="quadro"></canvas>
       <div class="teclado">
-        <button class="tecla">A</button>
-        <button class="tecla">B</button>
-        <button class="tecla">C</button>
-        <button class="tecla">D</button>
-        <button class="tecla">E</button>
-        <button class="tecla">F</button>
-        <button class="tecla">G</button>
-        <button class="tecla">H</button>
-        <button class="tecla">I</button>
-        <button class="tecla">J</button>
-        <button class="tecla">K</button>
-        <button class="tecla">L</button>
-        <button class="tecla">M</button>
-        <button class="tecla">N</button>
-        <button class="tecla">O</button>
-        <button class="tecla">P</button>
-        <button class="tecla">Q</button>
-        <button class="tecla">R</button>
-        <button class="tecla">S</button>
-        <button class="tecla">T</button>
-        <button class="tecla">U</button>
-        <button class="tecla">V</button>
-        <button class="tecla">W</button>
-        <button class="tecla">X</button>
-        <button class="tecla">Y</button>
-        <button class="tecla">Z</button>
+        <button value="A" class="tecla">A</button>
+        <button value="B" class="tecla">B</button>
+        <button value="C" class="tecla">C</button>
+        <button value="D" class="tecla">D</button>
+        <button value="E" class="tecla">E</button>
+        <button value="F" class="tecla">F</button>
+        <button value="G" class="tecla">G</button>
+        <button value="H" class="tecla">H</button>
+        <button value="I" class="tecla">I</button>
+        <button value="J" class="tecla">J</button>
+        <button value="K" class="tecla">K</button>
+        <button value="L" class="tecla">L</button>
+        <button value="M" class="tecla">M</button>
+        <button value="N" class="tecla">N</button>
+        <button value="O" class="tecla">O</button>
+        <button value="P" class="tecla">P</button>
+        <button value="Q" class="tecla">Q</button>
+        <button value="R" class="tecla">R</button>
+        <button value="S" class="tecla">S</button>
+        <button value="T" class="tecla">T</button>
+        <button value="U" class="tecla">U</button>
+        <button value="V" class="tecla">V</button>
+        <button value="W" class="tecla">W</button>
+        <button value="X" class="tecla">X</button>
+        <button value="Y" class="tecla">Y</button>
+        <button value="Z" class="tecla">Z</button>
       </div>
       <div>
         <div id="botoes" class="botoes">
           <button id="comecar" class="botao destaque add">Salvar e Começar</button>
+          <button id="adicionar" class="botao  adicionar add">Adicionar palavra</button>
           <a id="fim" href="../index.html" class="botao secundario add">Cancelar</a>
         </div>
       </div>

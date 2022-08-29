@@ -1,6 +1,12 @@
 const entrada = document.querySelector("#entrada");
+const jogadorEntrada = document.querySelector("#jogador");
 const container = document.querySelector("#container-entrada");
 const botaoJogar = document.querySelector("#comecar");
+const adicionar = document.querySelector("#adicionar");
+const novaPalavra = document.querySelector(".novaPalavra");
+const pushPalavra = document.querySelector(".addPalavra");
+const aviso = document.querySelector("#aviso");
+const descricao = document.querySelector("#container-entrada h2");
 const desistir = document.querySelector("#fim");
 const quadro = document.querySelector("#quadro");
 const teclas = document.querySelectorAll(".teclado button");
@@ -254,6 +260,7 @@ let palavras = {
     "TUVALU",
     "VANUATU",
   ],
+  jogador: [],
 };
 
 let palavra;
@@ -263,32 +270,120 @@ let letrasCertas = [];
 let letrasRecebidas = "";
 let letraErrada;
 let tem;
+let entradaValor;
+let clicado = true;
+let palavraSecreta;
+let palavraAnterior = "";
 
 // funcao principal que chama as complementares
 function jogar() {
-  let entradaValor = entrada.value;
-  let palavraSecreta = sorteia(palavras[entradaValor].length);
-  palavra = palavras[entradaValor][palavraSecreta];
-  titulo.classList.add("apareceTitulo");
-  titulo.innerText = entradaValor.toUpperCase();
-  console.log(palavra);
+  if (clicado) {
+    entradaValor = entrada.value;
+  }
   verificaBotao();
+  palavra = palavras[entradaValor][palavraSecreta];
+  console.log("Atual " + palavra);
   desenhaForca();
   desenhaLinha(palavra);
+  if (palavras.jogador.length >= 1) {
+    jogadorEntrada.removeAttribute("disabled");
+    jogadorEntrada.setAttribute("selected", "selected");
+  }
 }
 
 //verifica o que esta escrito no botão e troca para o texto correto
 function verificaBotao() {
   if (botaoJogar.textContent == "Salvar e Começar") {
+    adicionar.classList.add("esconde");
     container.classList.add("esconde");
     quadro.classList.add("aparece");
+    pushPalavra.classList.add("esconde");
     teclado.setAttribute("id", "teclado");
+    titulo.classList.add("apareceTitulo");
+    titulo.innerText = entradaValor.toUpperCase();
     botaoMobile.classList.add("mobile");
     botaoJogar.innerText = "Novo Jogo";
     desistir.innerText = "Desistir";
+    palavraSecreta = sorteia(palavras[entradaValor].length);
+    clear();
+    teclas.forEach((tecla) => {
+      tecla.addEventListener("touchend", editaTecla);
+    });
+    document.addEventListener("keydown", verificaLetra);
   } else if (botaoJogar.textContent == "Novo Jogo") {
-    location.reload();
+    palavraAnterior = palavra;
+    adicionar.classList.remove("esconde");
+    container.classList.remove("esconde");
+    quadro.classList.remove("aparece");
+    pushPalavra.classList.remove("esconde");
+    titulo.classList.remove("apareceTitulo");
+    teclado.removeAttribute("id");
+    botaoMobile.classList.remove("mobile");
+    botaoJogar.innerText = "Salvar e Começar";
+    desistir.innerText = "Cancelar";
+    removeBotaoAdd();
+    clear();
+    reiniciaTecla();
+    iniciaJogo();
   }
+}
+
+// muda o design se clicado em adicionar palavra
+function verificaBotaoAdd() {
+  clicado = false;
+  entradaValor = "jogador";
+  descricao.textContent = "Desafie alguém adicionando palavras diferentes 🪄";
+  aviso.setAttribute("id", "aviso");
+  aviso.classList.remove("esconde");
+  aviso.textContent =
+    "❗Somente palavras com no máximo 9 letras e sem acento❗";
+  entrada.classList.add("esconde");
+  adicionar.classList.add("esconde");
+  novaPalavra.setAttribute("id", "novaPalavra");
+  pushPalavra.setAttribute("id", "botaoPush");
+}
+
+// remove os estilos aplicados no ao adicionar
+function removeBotaoAdd() {
+  descricao.textContent = "Selecione uma opção de tema abaixo";
+  aviso.removeAttribute("id");
+  aviso.classList.add("esconde");
+  entrada.classList.remove("esconde");
+  adicionar.classList.remove("esconde");
+  novaPalavra.removeAttribute("id");
+  pushPalavra.removeAttribute("id");
+}
+
+// faz um push da palavra na lista
+function empurraPalavra() {
+  if (
+    novaPalavra.value == "" ||
+    Number(novaPalavra.value) ||
+    novaPalavra.value.length > 9
+  ) {
+    novaPalavra.value = "";
+    novaPalavra.placeholder = "Palavra Inválida";
+    setTimeout(() => {
+      novaPalavra.placeholder = "Digite uma palavra";
+    }, 1000);
+  } else {
+    let palavraMaiuscula = novaPalavra.value.toUpperCase();
+    palavras.jogador.push(palavraMaiuscula);
+    console.log(palavras.jogador);
+    novaPalavra.value = "";
+    pushPalavra.textContent = "Adicionado!";
+    setTimeout(() => {
+      pushPalavra.textContent = "Adicionar";
+    }, 1000);
+  }
+}
+
+// limpa todo o canvas
+function clear() {
+  desenha.clearRect(0, 0, 900, 600);
+  letrasRecebidas = "";
+  letrasCertas = [];
+  erro = 0;
 }
 
 // desenha a forca no canvas
@@ -417,7 +512,15 @@ function vencedor() {
 
 //sorteia uma palavra aleatoria na lista
 function sorteia(arrayTamanho) {
-  return Math.round(Math.random() * (arrayTamanho - 1));
+  let resultado = Math.round(Math.random() * (arrayTamanho - 1));
+  console.log(palavraSecreta);
+  if (palavras.jogador.length > 1) {
+    while (palavraSecreta == resultado) {
+      resultado = Math.round(Math.random() * (arrayTamanho - 1));
+      console.log(resultado);
+    }
+  }
+  return resultado;
 }
 
 //escreve na tela que a partida foi perdida
@@ -459,8 +562,19 @@ function fimDeJogo() {
   );
 }
 
+// inicia jogo mobile
+
+function iniciaJogo() {
+  document.addEventListener("keydown", verificaLetra, false);
+  teclado.addEventListener("touchstart", verificaLetraMobile, false);
+  teclas.forEach((tecla) => {
+    tecla.addEventListener("touchend", editaTecla, false);
+  });
+}
+
 function verificaLetraMobile(e) {
   letraPressionada = e.target.innerText;
+  console.log(letraPressionada);
   if (
     letrasRecebidas.includes(e.target.innerText) ||
     letraPressionada == "✓" ||
@@ -498,11 +612,23 @@ function direcionaMobile(letra) {
 function editaTecla(e) {
   if (tem) {
     e.target.innerText = "✓";
-    e.target.classList.add("b");
+    e.target.classList.remove("b");
+    e.target.classList.add("g");
   } else {
     e.target.innerText = "✘";
+    e.target.classList.remove("b");
     e.target.classList.add("r");
   }
+}
+
+function reiniciaTecla() {
+  teclas.forEach((tecla) => {
+    let valor = tecla.attributes.value.textContent;
+    tecla.innerText = valor;
+    tecla.classList.add("b");
+    tecla.classList.remove("g");
+    tecla.classList.remove("r");
+  });
 }
 
 teclas.forEach((tecla) => {
@@ -510,5 +636,6 @@ teclas.forEach((tecla) => {
 });
 
 teclado.addEventListener("touchstart", verificaLetraMobile);
+adicionar.addEventListener("click", verificaBotaoAdd);
 botaoJogar.addEventListener("click", jogar);
-document.addEventListener("keydown", verificaLetra);
+pushPalavra.addEventListener("click", empurraPalavra);

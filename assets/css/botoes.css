@@ -25,22 +25,31 @@
   border-radius: 20px;
   border: 1px solid #00008b;
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .botao.destaque {
   background-color: #00008b;
   color: #fff;
-  transition: 0.5s;
 }
 
 .botao.destaque:hover {
   background-color: #01015c;
 }
 
+.botao.adicionar {
+  color: #000;
+  background-color: #6eb4ff;
+}
+
+.botao.adicionar:hover {
+  color: #fff;
+  background-color: #0000ff;
+}
+
 .botao.secundario {
   background-color: #fff;
   color: #00008b;
-  transition: 0.5s;
   padding: 25px 30px;
 }
 
