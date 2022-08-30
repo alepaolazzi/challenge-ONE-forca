@@ -1,8 +1,8 @@
 const quadro = document.querySelector("#forca");
 const desenha = quadro.getContext("2d");
 
-let erro = 0;
-let intervalo = setInterval(somaErro, 700);
+let count = 0;
+let intervalo = setInterval(somaContador, 700);
 
 function desenhaForca() {
   desenha.fillStyle = "#062347";
@@ -12,8 +12,8 @@ function desenhaForca() {
   desenha.fillRect(180, 10, 2, 10);
 }
 
-function desenhaBoneco(erros) {
-  switch (erros) {
+function desenhaBoneco(count) {
+  switch (count) {
     case 1:
       //cabeca
       desenha.beginPath();
@@ -59,11 +59,10 @@ function desenhaBoneco(erros) {
 desenhaForca();
 
 // função que mostra o boneco aos poucos
-function somaErro() {
-  if (erro < 6) {
-    erro++;
-    desenhaBoneco(erro);
-    console.log(erro);
+function somaContador() {
+  if (count < 6) {
+    count++;
+    desenhaBoneco(count);
   } else {
     clearInterval(intervalo);
   }

@@ -305,11 +305,11 @@ function verificaBotao() {
     botaoJogar.innerText = "Novo Jogo";
     desistir.innerText = "Desistir";
     palavraSecreta = sorteia(palavras[entradaValor].length);
-    clear();
-    teclas.forEach((tecla) => {
+    iniciaJogo();
+    /*   teclas.forEach((tecla) => {
       tecla.addEventListener("touchend", editaTecla);
     });
-    document.addEventListener("keydown", verificaLetra);
+    document.addEventListener("keydown", verificaLetra); */
   } else if (botaoJogar.textContent == "Novo Jogo") {
     palavraAnterior = palavra;
     adicionar.classList.remove("esconde");
@@ -370,12 +370,11 @@ function empurraPalavra() {
   } else {
     let palavraMaiuscula = novaPalavra.value.toUpperCase();
     palavras.jogador.push(palavraMaiuscula);
-    console.log(palavras.jogador);
     novaPalavra.value = "";
     pushPalavra.textContent = "Adicionado!";
     setTimeout(() => {
       pushPalavra.textContent = "Adicionar";
-    }, 1000);
+    }, 500);
   }
 }
 
@@ -574,7 +573,6 @@ function iniciaJogo() {
 
 function verificaLetraMobile(e) {
   letraPressionada = e.target.innerText;
-  console.log(letraPressionada);
   if (
     letrasRecebidas.includes(e.target.innerText) ||
     letraPressionada == "✓" ||
@@ -582,7 +580,7 @@ function verificaLetraMobile(e) {
   ) {
     alert("Letra já adicionada!");
   } else if (letraPressionada.length > 1) {
-    console.log("nada");
+    console.log("wholeAlphabet");
   } else {
     letrasRecebidas += e.target.innerText;
     direcionaMobile(e.target.innerText);
