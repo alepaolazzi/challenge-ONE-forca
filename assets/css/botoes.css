@@ -67,6 +67,9 @@
   }
   .botao.secundario {
     padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .botoes {
     gap: 20px;
