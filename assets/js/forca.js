@@ -305,11 +305,8 @@ function verificaBotao() {
     botaoJogar.innerText = "Novo Jogo";
     desistir.innerText = "Desistir";
     palavraSecreta = sorteia(palavras[entradaValor].length);
+    clear();
     iniciaJogo();
-    /*   teclas.forEach((tecla) => {
-      tecla.addEventListener("touchend", editaTecla);
-    });
-    document.addEventListener("keydown", verificaLetra); */
   } else if (botaoJogar.textContent == "Novo Jogo") {
     palavraAnterior = palavra;
     adicionar.classList.remove("esconde");
