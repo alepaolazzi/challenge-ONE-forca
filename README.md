@@ -38,8 +38,9 @@ Essas foram as tecnologias e ferramentas que utilizei para realizar este Challen
 Gif demonstrando o funcionamento da aplicação.
 
 <p  align="center">
-	Em Breve!
+	<img  src='https://cdn.discordapp.com/attachments/808449313973469249/1014231811368419358/jogo-da-forca.gif'  alt='Gif do funcionamento do jogo'>
 </p>
+
 Para acessar o site ao vivo <a href='https://alepaolazzi.github.io/challenge-ONE-forca/'>Clique Aqui!</a>
 
 ## Autor
