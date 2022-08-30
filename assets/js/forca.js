@@ -330,6 +330,7 @@ function verificaBotao() {
 
 // muda o design se clicado em adicionar palavra
 function verificaBotaoAdd() {
+  removeVerificacao();
   clicado = false;
   entradaValor = "jogador";
   descricao.textContent = "Desafie alguém adicionando palavras diferentes 🪄";
@@ -448,7 +449,7 @@ function desenhaBoneco(erros) {
       desenha.lineTo(165, 80);
       desenha.stroke();
       perdeu();
-      fimDeJogo();
+      removeVerificacao();
       break;
   }
 }
@@ -507,7 +508,7 @@ function direcionaLetra() {
 function vencedor() {
   if (palavra.length === letrasCertas.length) {
     ganhou();
-    fimDeJogo();
+    removeVerificacao();
   }
 }
 
@@ -549,7 +550,7 @@ function ganhou() {
 }
 
 // remove os eventos no final do jogo
-function fimDeJogo() {
+function removeVerificacao() {
   document.removeEventListener("keydown", verificaLetra, false);
   teclado.removeEventListener("touchstart", verificaLetraMobile, false);
   setTimeout(
