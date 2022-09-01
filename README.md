@@ -7,7 +7,7 @@
 
 Resultado do segundo Challenge da Trilha Iniciante em Programação do programa ONE.
 
-Nesse projeto, foi necessário criar um jogo da forca utilizando os conhecimentos obtidos durante a formação.
+Nesse projeto, foi necessário criar um jogo da forca utilizando os conhecimentos obtidos durante a primeira formação técnica do programa.
 
 Para este projeto, os requisitos eram:
 
@@ -35,7 +35,7 @@ Essas foram as tecnologias e ferramentas que utilizei para realizar este Challen
 
 # Demonstração
 
-Gif demonstrando o funcionamento da aplicação.
+Gif demonstrando o funcionamento do jogo.
 
 <p  align="center">
 	<img  src='https://cdn.discordapp.com/attachments/808449313973469249/1014231811368419358/jogo-da-forca.gif'  alt='Gif do funcionamento do jogo'>
