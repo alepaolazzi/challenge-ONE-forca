@@ -27,6 +27,10 @@ Para este projeto, os requisitos eram:
 
 > As letras corretas devem aparecer sobre o traço, em sua posição correspondente
 
+**Extra**
+
+> A página deve conter um campo para inserção de texto com a finalidade de adicionar novas palavras ao jogo, e um botão "Adicionar nova palavra".
+
 ## 🛠 Tecnologias e Ferramentas Utilizadas
 
 Essas foram as tecnologias e ferramentas que utilizei para realizar este Challenge.
