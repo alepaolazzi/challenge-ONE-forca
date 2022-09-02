@@ -274,20 +274,26 @@ let entradaValor;
 let clicado = true;
 let palavraSecreta;
 let palavraAnterior = "";
+let testaJogador;
 
 // funcao principal que chama as complementares
 function jogar() {
-  if (clicado || entradaValor !== "jogador") {
-    entradaValor = entrada.value;
-  }
-  verificaBotao();
-  palavra = palavras[entradaValor][palavraSecreta];
-  console.log(palavra);
-  desenhaForca();
-  desenhaLinha(palavra);
-  if (palavras.jogador.length >= 1) {
-    jogadorEntrada.removeAttribute("disabled");
-    jogadorEntrada.setAttribute("selected", "selected");
+  verificaJogador();
+  if (testaJogador) {
+    alert("Insira algum valor!");
+  } else {
+    if (clicado || entradaValor !== "jogador") {
+      entradaValor = entrada.value;
+    }
+    verificaBotao();
+    palavra = palavras[entradaValor][palavraSecreta];
+    console.log(palavra);
+    desenhaForca();
+    desenhaLinha(palavra);
+    if (palavras.jogador.length >= 1) {
+      jogadorEntrada.removeAttribute("disabled");
+      jogadorEntrada.setAttribute("selected", "selected");
+    }
   }
 }
 
@@ -322,6 +328,17 @@ function verificaBotao() {
     clear();
     reiniciaTecla();
     iniciaJogo();
+  }
+}
+
+// verifica se tem palavras no jogador
+function verificaJogador() {
+  if (clicado == false && entradaValor == "jogador") {
+    if (palavras.jogador.length == 0) {
+      testaJogador = true;
+    } else {
+      testaJogador = false;
+    }
   }
 }
 
